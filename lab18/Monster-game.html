@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monster Game</title>
+    <link href="styles/Monster-game.css" rel="stylesheet">
+    <style>
+        #frame{
+            background-image: url("images/frame.png");
+            height: 629px;
+            width: 546px;
+            margin-left: 32%;
+            bottom: 0;
+        }
+        body{
+           background: black;
+            animation-name:example ;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes example {
+            25%{background-image: url("images/lightning-01.jpg");}
+            50%{background-image: url("images/lightning-02.jpg");}
+            100%{background-image: url("images/lightning-03.jpg");
+    </style>
+</head>
+<body>
+    <header id="top">
+        <img src="images/Monster_Mashup.png" height="33" width="286"/>
+        <p>Make your own monster face by clicking on the picture.</p>
+    </header>
+    <div id="container">
+        <div id="frame">
+            <div id="pic_box">
+                <div id="head" ><img class="face1" src="images/headsstrip.jpg"> </div>
+                <div id="eyes" ><img class="face2" src="images/eyesstrip.jpg"> </div>
+                <div id="nose" ><img class="face3" src="images/nosesstrip.jpg"> </div>
+                <div id="mouth" ><img class="face4" src="images/mouthsstrip.jpg"> </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/jquery-1.6.2.min.js"></script>
+    <script>
+        var index=1;
+        changelmg=function (){
+            var background =["monster%20game%20project/images/lightning-01.jpg"];
+            document.getElementById('background').src=background[index];
+            index++;
+            if(index==2){
+                index=0;
+            }
+        }
+        setInterval(changelmg,500);
+        $(document).ready(function (){
+            $("#head").click(function () {
+                $(".face1").animate({
+                    left: -367
+                }, 20);
+            });
+            $("#eyes").click(function () {
+                $(".face2").animate({
+                    left: 367
+                }, 20);
+            });
+            $("#nose").click(function () {
+                $(".face3").animate({
+                    left: 367
+                }, 200);
+            });
+            $("#mouth").click(function () {
+                $(".face4").animate({
+                    left: 367
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
